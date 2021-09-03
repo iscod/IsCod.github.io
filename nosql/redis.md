@@ -285,7 +285,7 @@ OK
 
 ## Lua脚本
 
-redis 使用lua脚本可以很方便的获取redis多个命令的结果，比如`ZSCORE`获取多个`member`的结果时
+redis 通过`EVAL`命令来执行`lua`脚本, 使用`lua`脚本可以很方便的获取`redis`多个命令的结果，比如`ZSCORE`获取多个`member`的结果时。
 
 ### EVAL
 
