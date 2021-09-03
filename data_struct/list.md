@@ -59,15 +59,15 @@ type link struct {
 }
 
 func (l *link) Push(node *linkNode) {
+	n := &linkNode{Value: node.Value}
 	if l.Len == 0 {
-		l.Head = &linkNode{Value: node.Value}
-		l.Tail = l.Head
-		l.Head.Next = l.Tail
-		l.Tail.Prev = l.Head
+		n.Next = l.Tail
+		n.Prev = l.Head
+		l.Head, l.Tail = n, n
 	} else {
 		tail := l.Tail
-		tail.Next = &linkNode{Prev: tail, Value: node.Value}
-		l.Tail = tail.Next
+		l.Tail.Next, l.Tail = n, n
+		l.Tail.Prev = tail
 	}
 	l.Len++
 }
@@ -91,10 +91,21 @@ func main() {
 	l.Push(&linkNode{Value: 10})
 	l.Push(&linkNode{Value: 3})
 	l.Push(&linkNode{Value: 2})
+	fmt.Printf("List len: %d\n", l.Len)
 	head := l.Head
-	for head != nil {
-		fmt.Printf("%d\n", head.Value)
+	for i := 0; i < l.Len; i++ {
+		fmt.Printf("Next Scan: %d\n", head.Value)
 		head = head.Next
+	}
+	tail := l.Tail
+	for i := 0; i < l.Len; i++ {
+		fmt.Printf("Prev Scan: %d\n", tail.Value)
+		tail = tail.Prev
+	}
+
+	for l.Len > 0 {
+		n := l.Pop()
+		fmt.Printf("Pop Scan: %d, %d \n", n.Value, l.Len)
 	}
 }
 ```
