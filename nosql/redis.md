@@ -283,6 +283,26 @@ OK
 
 对象`A` 的键值为 `1`时, `A`的对象引用计数是 `1`。当A的键值设置 `100001` 时，引用计数为 `1`
 
+## Lua脚本
+
+redis 使用lua脚本可以很方便的获取redis多个命令的结果，比如`ZSCORE`获取多个`member`的结果时
+
+### EVAL
+
+EVAL的第一个参数是一段 Lua 脚本程序。 这段Lua脚本不需要（也不应该）定义函数。
+
+EVAL的第二个参数是`key`的个数，后面的参数（从第三个参数），表示在脚本中所用到的那些 Redis 键(key)，这些键名参数可以在 Lua 中通过全局变量`KEYS`数组引用，用 1 为基址的形式访问( KEYS[1] ， KEYS[2] ，以此类推)。
+
+在命令的最后，是非`key`参数的附加参数 arg [arg …] ，可以在 Lua 中通过全局变量 ARGV 数组访问，访问的形式和 KEYS 变量类似( ARGV[1] 、 ARGV[2] ，诸如此类)。
+
+举例说明：
+
+```sh
+eval "local res={} for i,v in ipairs(ARGV) do res[i]=redis.call('ZSCORE', KEYS[1], v); end return res" 1 key member1 member2 member3
+```
+
+- redis cluster 环境下使用要保证所有的`key`在同一个`slot`, 否则会报`ERR 'EVAL' command keys must in same slot`
+
 ## 集群
 
 Redis集群是由多个redis节点组成的数据共享的程序集（最少三个节点）
