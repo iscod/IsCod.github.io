@@ -202,25 +202,45 @@ lru 记录了对象最后一次被程序访问的时间
 (integer) 604
 ```
 
-- 字符串对象
+#### 类型
+
+`src/server.h`文件定义了`type`对象类型:
+
+```c
+/* The actual`Redis`Object */
+#define OBJ_STRING 0    /* String object. */
+#define OBJ_LIST 1      /* List object. */
+#define OBJ_SET 2       /* Set object. */
+#define OBJ_ZSET 3      /* Sorted set object. */
+#define OBJ_HASH 4      /* Hash object. */
+```
+
+可通过Redis`TYPE`命令查看对象`key`的`type`对象类型
+
+```sh
+127.0.0.1:6379[1]> TYPE key_name
+string
+```
+
+- 字符串对象(OBJ_STRING)
 
 字符串对象的编码对象可以是`int` `emstr` `raw` 
 
-- 列表对象
+- 列表对象(OBJ_LIST)
 
 列表对象的编码对象可以是`ziplist` `linkedlist`
 
-- 哈希对象
-
-列表对象的编码对象可以是`ziplist` `hashtable`
-
-- 集合对象
+- 集合对象(OBJ_SET)
 
 列表对象的编码对象可以是`intset` `hashtable`
 
-- 有序集合对象
+- 有序集合对象(OBJ_ZSET)
 
 有序集合对象的编码对象可以是`ziplist` `skiplist`
+
+- 哈希对象(OBJ_HASH)
+
+列表对象的编码对象可以是`ziplist` `hashtable`
 
 ## 内存回收
 
