@@ -4,17 +4,6 @@
 
 `OSI7层参考模型`
 
-网络层|使用的协议| 描述
-------------- | -------- | -------------------------------
-应用层 | HTTP, HTP, SSH | 用户空间
-表示层 | NCP, XDR |
-会话层 | sockets, BSD |
-传输层 | TCP,UDP |
-网络层 | IP, ICMP | 内核空间
-数据链路层 | IEEE 802.11,FDDI | 
-物理层| 无线电, 光纤 |物理传输媒介
-
-
 <table>
     <tr>
         <th>OSI七层参考模型</th>
@@ -24,7 +13,7 @@
     </tr>
     <tr>
         <td>应用层</td>
-        <td rowspan="3">应用层</td>
+        <td rowspan="2">应用层</td>
         <td>HTTP, HTP, SSH</td>
         <td>用户空间</td>
     </tr>
@@ -53,13 +42,13 @@
      <tr>
         <td>数据链路层</td>
         <td>数据链路层</td>
-        <td>IEEE 802.11,FDDI </td>
+        <td>IEEE 802.11,FDDI</td>
         <td></td>
     </tr>
      <tr>
         <td>物理层</td>
         <td>物理层</td>
-        <td>无线电, 光纤</td>
+        <td>无线电,光纤</td>
         <td>物理传输媒介</td>
     </tr>
 </table>
