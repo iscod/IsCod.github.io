@@ -79,7 +79,57 @@ TCP三次握手(建立连接)过程:
 
 ### 代码实现
 
-go tcp 服务器：
+go scoket 服务器：
 ```go
+package main
 
+import (
+    "bytes"
+    "fmt"
+    "net"
+    "strings"
+    "time"
+)
+
+func main() {
+    l, err := net.Listen("tcp4", ":1234")
+    if err != nil {
+        fmt.Printf("net listen err : %s\n", err)
+    }
+
+    for {
+        c, err := l.Accept()
+        if err != nil {
+            fmt.Printf("accept err : %s", err)
+            continue
+        }
+
+        go func() {
+            fmt.Printf("client connection: , %s\n", c.RemoteAddr())
+            _, err = c.Write([]byte(fmt.Sprintf("server connection success: %s\n", c.LocalAddr())))
+            c.SetDeadline(time.Now().Add(time.Second * 10))
+            var req = make([]byte, 1024)
+            for {
+                n, err := c.Read(req)
+                if err == nil {
+                    c.SetDeadline(time.Now().Add(time.Second * 10))
+                    if n > 0 {
+                        fmt.Printf("conn read : %s", req)
+                    }
+
+                    _, err = c.Write([]byte(fmt.Sprintf("server return: %s\n", req)))
+                    if err != nil {
+                        fmt.Printf("err : %s", err)
+                    }
+                    if strings.TrimSpace(fmt.Sprintf("%s", bytes.TrimSpace(req[:n]))) == "close" {
+                        c.Close()
+                    } else {
+                        req = make([]byte, 1024)
+                    }
+                }
+
+            }
+        }()
+    }
+}
 ```
