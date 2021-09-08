@@ -30,13 +30,11 @@
     </tr>
     <tr>
         <td>表示层</td>
-        <td></td>
         <td>NCP, XDR</td>
         <td></td>
     </tr>
     <tr>
         <td>会话层</td>
-        <td></td>
         <td>sockets, BSD</td>
         <td></td>
     </tr>
