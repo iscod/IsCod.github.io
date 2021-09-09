@@ -118,7 +118,6 @@ DHCP (动态主机配置协议) - 针对动态寻址
 
 服务端在接收到客户端第`4`步骤的信息后进入`关闭(CLOSE)`。
 
-
 **TCP链接四次挥手:**
 
 ![TCP四次挥手](https://iscod.github.io/images/tcp_fin_1.png)
@@ -197,7 +196,19 @@ func main() {
 }
 ```
 
+测试
+
+```sh
+nc 127.0.0.1 1234
+server connection success: 127.0.0.1:1234
+
+close
+server return: close
+```
+
 * 工具
     * [wireshark](https://www.wireshark.org/)
+    * [telnet]()
+    * [nc]()
 
 
