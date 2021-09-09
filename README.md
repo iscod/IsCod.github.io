@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/IsCod/IsCod.github.io.svg?branch=master)](https://travis-ci.org/IsCod/IsCod.github.io)
+[![Build Status](https://app.travis-ci.com/iscod/iscod.github.io.svg?branch=master)](https://app.travis-ci.com/iscod/iscod.github.io)
 
 # IsCod
 
@@ -25,26 +25,22 @@
 * Devops
     * [Jenkins](devops/jenkins.md)
     * [walle](devops/walle.md)
-* HTTP/TCP
-  * [HTTP安全](http/http安全.md)
-  * [HTTP协议](http/http协议.md)
-  * [TCP](http/tcp.md)
-* NoSql
+* Net
+  * [HTTP安全](net/http安全.md)
+  * [HTTP协议](net/http协议.md)
+  * [TCP](net/tcp.md)
+  * [网络编程](net/network.md)
+* Nosql
+  * [Nosql是什么?](nosql/nosql.md)
   * [REDIS](nosql/redis.md)
 * SQL
   * [MySql](sql/mysql.md)
+  * [数据分片](TO/数据分片.md)
   * [ShardingSphere](sql/shardingsphere.md)
   * [MyCat](sql/mycat.md)
 * 杂项 
   * [AJAX](TO/AJAX.md)
-  * [数据切分](TO/数据切分.md)
   * [错误处理](TO/错误处理.md)
-* 哲学
-  * [形而上学](Life/形而上学.md)
-  * [唯物主义](Life/唯物主义.md)
-  * [辩证](Life/辩证.md)
-  * [Life?](Life/生活是什么.md)
-  * [赚钱是最容易的事？](Life/钱是最容易的事.md)
 * 经济学
   * [经济学十大原理](EO/经济学十大原理.md)
   * [现值](EO/现值.md)

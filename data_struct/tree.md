@@ -24,7 +24,7 @@
 
 二叉树节点：
 
-```golang
+```go
 type treeNode struct {
 	Value       interface{}
 	Times       int64
@@ -42,7 +42,7 @@ type treeNode struct {
     3.中序遍历：先访问左节点，后访问根节点，最后访问右节点（也可先访问右节点，后访问根节点，最后访问左节点）
     4.层次遍历：从左向右顺序访问每一层节点
 
-```golang
+```go
 package main
 
 import (
@@ -164,7 +164,7 @@ func main() {
 
 以上特点可以保证二叉树一直向左查找可以找到最小的元素，一直向右可以找到最大元素
 
-```golang
+```go
 type SearchTree struct {
 	Root *SearchTreeNode
 }
@@ -202,7 +202,7 @@ func NewSearchTree() *SearchTree {
 
 ### 二叉树
 
-```golang
+```go
 package main
 
 import (
@@ -253,7 +253,7 @@ func (t *Tree) Add(value interface{}) {
 
 ### 二叉查找树
 
-```golang
+```go
 package main
 
 import (

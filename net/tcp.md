@@ -84,19 +84,13 @@ DHCP (动态主机配置协议) - 针对动态寻址
 
 ![TCP客户端发起请求链接参数](https://iscod.github.io/images/tcp_2.png)
 
-`seq=4272455158`, `Flags标识位: SYN`
-
-- 2, 服务端确认收到客户端协议后向客户端发送确认信息, 此时Flags标识位为：`SYN`+ `ACK`。并附带参数`ack`（tcp.ack_raw=客户端发送的tcp.seq_raw+1）和 新的`seq`(tcp.seq_raw=317767926)随机序号
+- 2, 服务端确认收到客户端协议后向客户端发送确认信息, 此时Flags标识位为：`SYN`+ `ACK`。并附带参数`ack`（tcp.ack_raw=客户端发送的tcp.seq_raw+1=4272455159）和 新的`seq`(tcp.seq_raw=317767926)随机序号
 
 ![服务端返回ACK确认信息](https://iscod.github.io/images/tcp_3.png)
 
-`ack=4272455159`, `seq=317767926`, `Flags标识位: SYN,ACK`
-
-- 3，客户端确认收到服务端协议后向服务器发送确认信息，此时Flags标识位为：`ACK`。附带参数`ack`（tcp.ack_raw=服务端seq+1）和`seq`(tcp.seq_raw=服务端发送的tcp.ack_raw)
+- 3，客户端确认收到服务端协议后向服务器发送确认信息，此时Flags标识位为：`ACK`。附带参数`ack`（tcp.ack_raw=服务端seq+1=317767927）和`seq`(tcp.seq_raw=服务端发送的tcp.ack_raw=4272455159)
 
 ![客户端返回ACK确认信息](https://iscod.github.io/images/tcp_4.png)
-
-`ack=317767927`, `seq=4272455159`, `Flags标识位: ACK`
 
 至此链接建立完毕, 就可以发送数据
 
@@ -142,7 +136,7 @@ DHCP (动态主机配置协议) - 针对动态寻址
 ### 代码实现
 
 go scoket 服务器：
-```golang
+```go
 package main
 
 import (
@@ -198,8 +192,8 @@ func main() {
 
 测试
 
-```sh
-nc 127.0.0.1 1234
+```bash
+$ nc 127.0.0.1 1234
 server connection success: 127.0.0.1:1234
 
 close

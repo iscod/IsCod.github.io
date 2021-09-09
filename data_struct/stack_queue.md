@@ -16,7 +16,7 @@
 
 ## 代码实现
 
-```golang
+```go
 package main
 
 import (

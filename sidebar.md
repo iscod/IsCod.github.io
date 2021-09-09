@@ -20,23 +20,17 @@
   * [HTTP协议](net/http协议.md)
   * [TCP](net/tcp.md)
   * [网络编程](net/network.md)
-* Nosql
-  * [Nosql是什么?](nosql/nosql.md)
+* NoSQL
+  * [NoSQL是什么?](nosql/nosql.md)
   * [REDIS](nosql/redis.md)
 * SQL
-  * [MySql](sql/mysql.md)
+  * [MySQL](sql/mysql.md)
   * [数据分片](TO/数据分片.md)
-  * [ShardingSphere](sql/ShardingSphere.md)
+  * [ShardingSphere](sql/shardingsphere.md)
   * [MyCat](sql/mycat.md)
 * 杂项 
   * [AJAX](TO/AJAX.md)
   * [错误处理](TO/错误处理.md)
-* 哲学
-  * [形而上学](Life/形而上学.md)
-  * [唯物主义](Life/唯物主义.md)
-  * [辩证](Life/辩证.md)
-  * [Life?](Life/生活是什么.md)
-  * [赚钱是最容易的事？](Life/钱是最容易的事.md)
 * 经济学
   * [经济学十大原理](EO/经济学十大原理.md)
   * [现值](EO/现值.md)

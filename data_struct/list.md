@@ -43,7 +43,7 @@ typedef struct list {
 
 ## 代码实现
 
-```golang
+```go
 package main
 
 import "fmt"

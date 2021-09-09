@@ -196,7 +196,7 @@ Telnet程序可以连接到某个目标的TCP端口, 并将此TCP端口的回送
 
 可以通过Telnet与web服务器进行通话。
 
-```sh
+```bash
 $ telnet 127.0.0.1 80
 Trying 127.0.0.1...
 Connected to localhost.
@@ -222,7 +222,7 @@ Telnet可以很好的模拟HTTP客户端, 但是不能作为服务器使用, 但
 
 使用nc
 
-```sh
+```bash
 nc 127.0.0.1 80
 GET /index.html HTTP/1.1
 Host: www.example.com
@@ -400,7 +400,7 @@ X-Powered-By: PHP/7.0.26
 
 使用Telnet
 
-```sh
+```bash
 telnet 127.0.0.1 80
 Trying 127.0.0.1...
 Connected to localhost.
@@ -423,7 +423,7 @@ X-Powered-By: PHP/7.0.26
 ?>注意首部和实体部分的分隔符CRLF
 
 使用nc
-```sh
+```bash
 nc 127.0.0.1 80
 GET / HTTP/1.0
 HOST:www.example.com
